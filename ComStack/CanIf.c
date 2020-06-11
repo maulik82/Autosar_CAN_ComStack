@@ -37,18 +37,18 @@ volatile uint8_t TestEnable = FALSE;
 
 const CANDRV_OBJECT_TYPE TEST_OBJECT =
 {
-	P_L_CAN2,                                    /* CAN_DEVICE_NUMBER */
-    0x91,                          /* CAN_MB_NUMBER     */
+	P_L_CAN2,                                   /* CAN_DEVICE_NUMBER */
+    0x91,                          				/* CAN_MB_NUMBER     */
     {
-        0x91,                       /* CAN_FD_MSG_ID */
+        0x91,                       			/* CAN_FD_MSG_ID */
         CANIF_MASK_STD0,                        /* MSG_ID_MAS */
-        0x8,                       /* MSG_DATA_LENGTH */
+        0x8,                       				/* MSG_DATA_LENGTH */
         CANIF_DEFAULT_BYTE_STUFF_VALUE,         /* BYTE_STUFFING_VAL */
-        CANIF_ONLY,                            /* CAN_PROTOCOL */
-        CANIF_STD,                             /* STD_TYPE */
-        CANIF_TX,                              /* DIRECTION */
-        TRUE,                                    /* CALLBACK REQ */
-        FALSE                                    /* BAUDRATE SWITCH REQ */
+        CANIF_ONLY,                            	/* CAN_PROTOCOL */
+        CANIF_STD,                             	/* STD_TYPE */
+        CANIF_TX,                              	/* DIRECTION */
+        TRUE,                                   /* CALLBACK REQ */
+        FALSE                                   /* BAUDRATE SWITCH REQ */
     }
 };
 #endif
@@ -65,7 +65,6 @@ static uint16_t CanIf_LookupTxPduId( const uint32_t msgId );
 
 /*
 *  Function Name   : CanIf_Transmit
-*  Model Reference :
 *  Description     : Transmits the S-PDU via appropriate channel
 */
 
@@ -116,7 +115,6 @@ Std_ReturnType CanIf_Transmit( uint16_t txPduId, const pdu_t* const sPdu )
 
 /*
 *  Function Name   : CanIf_TxConfirmation
-*  Model Reference :
 *  Description     : This service confirms a previously successfully processed
 *                    transmission of a CAN TxPDU.
 */
@@ -144,7 +142,6 @@ void CanIf_TxConfirmation( PduIdType msgNum )
 
 /*
 *  Function Name   : CanIf_Receive
-*  Model Reference :
 *  Description     : Receives the  S-PDU from CAN channel
 */
 
@@ -175,7 +172,6 @@ void CanIf_Receive(  PduIdType msgId, uint8_t * const p_l_cc_data_ptr )
 
 /*
 *  Function Name   : CanIf_LookupRxPduId
-*  Model Reference :
 *  Description     : Returns PDU id with matching msg number
 */
 
@@ -198,7 +194,6 @@ static uint16_t CanIf_LookupRxPduId( const PduIdType msgId )
 
 /*
 *  Function Name   : CanIf_LookupTxPduId
-*  Model Reference :
 *  Description     : Returns PDU id with matching msg number
 */
 
@@ -223,7 +218,6 @@ static uint16_t CanIf_LookupTxPduId( const PduIdType msgNum )
 
 /*
 *  Function Name   : CanIf_Initalise
-*  Model Reference :
 *  Description     :
 */
 

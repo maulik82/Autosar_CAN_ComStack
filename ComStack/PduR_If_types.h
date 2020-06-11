@@ -12,8 +12,6 @@
 #ifndef _PDUR_IF_TYPES_
 #define _PDUR_IF_TYPES_
 
-
-
 typedef enum
 {
     PDUR_IF_CAN,          			/* Can network interface */

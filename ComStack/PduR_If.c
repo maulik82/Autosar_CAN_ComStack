@@ -9,7 +9,6 @@
  */
 
 
-
 /*  Library Include Files */
 #include "library_types.h"
 
@@ -29,7 +28,6 @@ static uint16_t PduR_If_LookupTxPort( const PduR_If_t interface, const uint16_t 
 
 /*
 *  Function Name   : PduR_If_Transmit
-*  Model Reference :
 *  Description     : Sends a network PDU to the specified port
 */
 
@@ -84,7 +82,6 @@ Std_ReturnType PduR_If_Transmit( uint16_t portId, const pdu_t* const Ipdu )
 
 /*
 *  Function Name   : PduR_If_CanRxIndication
-*  Model Reference :
 *  Description     : CAN RX PDU call-back handler from lower layer
 */
 
@@ -110,7 +107,6 @@ void PduR_If_CanRxIndication( uint16_t rxPduId, const pdu_t* const Ipdu )
 
 /*
 *  Function Name   : PduR_If_CanTxIndication
-*  Model Reference :
 *  Description     : CAN TX PDU call-back handler from lower layer
 */
 
@@ -135,7 +131,6 @@ void PduR_If_CanTxIndication( uint16_t txPduId  )
 
 /*
 *  Function Name   : PduR_If_LookupPortById
-*  Model Reference :
 *  Description     : Returns Port index matching to port Id
 */
 
@@ -154,7 +149,6 @@ static uint16_t PduR_If_LookupPortById( const uint16_t portId )
 
 /*
 *  Function Name   : PduR_If_LookupRxPort
-*  Model Reference :
 *  Description     : Return port id matching to port index.
 */
 
@@ -184,7 +178,6 @@ static uint16_t PduR_If_LookupRxPort( const PduR_If_t interface, const uint16_t 
 
 /*
 *  Function Name   : PduR_If_LookupTxPort
-*  Model Reference :
 *  Description     : Return port id matching to port index.
 */
 
@@ -213,7 +206,6 @@ static uint16_t PduR_If_LookupTxPort( const PduR_If_t interface, const uint16_t 
 /* Component Initialisation Function Definitions */
 /*
 *  Function Name   : PduR_If_Initialise
-*  Model Reference :
 *  Description     : Initialise all the network interfaces
 */
 

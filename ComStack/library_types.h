@@ -28,19 +28,6 @@ typedef uint8_t Std_ReturnType;
 #define _CONFIG_TABLE(x, i)         _CONFIG_TABLE_N(x, i)
 #define _CONFIG_TABLE_N(x, i)       {_ENTRY##i(x)}
 
-#define CONFIG_MAP(name)            _CONFIG_MAP(name, name##_COUNT)
-#define _CONFIG_MAP(name, i)        _CONFIG_MAP_N(name, i)
-#define _CONFIG_MAP_N(name, i)      _CONFIG##i(name##_CFG, name)
-
-#define _CONFIG_CHAR_HASH           #
-#define _CONFIG_CHAR_OB             (
-#define _CONFIG_CHAR_CB             )
-
-#define _CONFIG_ESCAPE(x)           x
-#define _CONFIG_HASH_DECORATE(a)    _CONFIG_ESCAPE(_CONFIG_CHAR_HASH)a
-#define _CONFIG_BRACKET_DECORATE(a) _CONFIG_ESCAPE(_CONFIG_CHAR_OB) a _CONFIG_ESCAPE(_CONFIG_CHAR_CB)
-
-
 #define _CONFIG(name, entry)        __CONFIG(name, entry)
 #define __CONFIG(name,entry)        name (entry)
 #define _ENTRY(x)                   x

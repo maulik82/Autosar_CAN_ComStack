@@ -12,7 +12,6 @@
 #ifndef _COM_SIGNALCFG_
 #define _COM_SIGNALCFG_
 
-
 /*  Communication Signal Configuration */
 /*
  #define signal_name    group, start, length, offset, factor, CB Func
@@ -24,7 +23,6 @@
      * offset:      offset bias
      * factor:      Scaling factor
      * CB Func:     Callback handler associated with signal, If any
-
 */
 
 #define COM_SIGNAL_COUNT            13

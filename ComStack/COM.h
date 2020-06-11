@@ -19,8 +19,6 @@
 
 
 /* Component Macro Definitions */
-
-
 #define COM_STACK_SPINLOCK          /* Spinlock associated with COM stack */
 
 #define COM_PORT_INVALID            0xFFFFU
@@ -52,7 +50,6 @@
 #define COM_TXBUF_LEN               50U
 
 #define LOG_ERROR(type) COM_StackErrorLog[type]++
-
 
 extern void COM_Scheduler( void );
 extern void COM_NetRxCallback( const uint16_t portId, const pdu_t* const pdu );

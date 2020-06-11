@@ -20,9 +20,9 @@ COM_StackError_t COM_StackErrorLog[ERROR_TYPE_COUNT];
 
 
 /*  Task Scope Variable Definitions */
-static COM_groupCfg_t 			COM_GroupCfgDB[] = CONFIG_TABLE( COM_GROUP );    /* Group configuration database */
+static COM_groupCfg_t 			COM_GroupCfgDB[] = CONFIG_TABLE( COM_GROUP );   /* Group configuration database */
 static const COM_signalCfg_t 	COM_SignalCfgDB[] = CONFIG_TABLE( COM_SIGNAL ); /* Signal configuration database */
-static COM_signalDataCfg_t 		COM_SignalData[COM_SIGNAL_COUNT];        /* Signal Configuration metadata */
+static COM_signalDataCfg_t 		COM_SignalData[COM_SIGNAL_COUNT];        		/* Signal Configuration metadata */
 
 static groupData_t 	COM_GroupDataBuffer[COM_GROUP_DATA_BUFFER_SIZE];      /* Group data groupDataPtr holding message data  */
 static uint8_t 		COM_Initialised;
@@ -41,8 +41,7 @@ static COM_SigCBHandler_t COM_GetSignalCallbackFunction ( const uint16_t signalI
 
 /*
 *  Function Name   : COM_Scheduler
-*  Model Reference :
-*  Description     :
+*  Description     : Timed Scheduler processing all the communication groups
 */
 
 void COM_Scheduler( void )
@@ -76,7 +75,6 @@ void COM_Scheduler( void )
 
 /*
 *  Function Name   : COM_InitSignal
-*  Model Reference :
 *  Description     : Initialise Communication Signal
 */
 
@@ -119,7 +117,6 @@ static void COM_InitSignal( uint16_t signal_index )
 
 /*
 *  Function Name   : COM_InitGroups
-*  Model Reference :
 *  Description     : Initialise all communication groups Data pointers
 */
 
@@ -159,7 +156,6 @@ static void COM_InitGroups( void )
 
 /*
 *  Function Name   : COM_NetRxCallback
-*  Model Reference :
 *  Description     : Network -> Communications Gateway RX PDU call-back.
 */
 
@@ -195,7 +191,6 @@ void COM_NetRxCallback( const uint16_t portId, const pdu_t* const pdu )
 
 /*
 *  Function Name   : COM_NetTxCallback
-*  Model Reference :
 *  Description     : Network -> Communications Gateway Tx PDU call-back.
 */
 
@@ -221,7 +216,6 @@ void COM_NetTxCallback( const uint16_t portId )
 
 /*
 *  Function Name   : COM_SignalCallbacks
-*  Model Reference :
 *  Description     : Execute all the signal callback handlers for requested group
 */
 
@@ -267,7 +261,6 @@ static void COM_SignalCallbacks( const uint16_t groupIndex )
 
 /*
 *  Function Name   : COM_GetSignalCallbackFunction
-*  Model Reference :
 *  Description     : Get calback handler associated with the signal
 */
 
@@ -279,7 +272,6 @@ static COM_SigCBHandler_t COM_GetSignalCallbackFunction ( const uint16_t signalI
 
 /*
 *  Function Name   : COM_SendGroup
-*  Model Reference :
 *  Description     : Sends the specified group via corresponding interface
 */
 
@@ -352,7 +344,6 @@ Std_ReturnType COM_SendGroup( const uint16_t i )
 
 /*
 *  Function Name   : COM_ReadGroup
-*  Model Reference :
 *  Description     : Reads the specified group data into the passed pointer.
 */
 
@@ -375,7 +366,6 @@ void COM_ReadGroup( const uint16_t i, uint8_t* const data )
 
 /*
 *  Function Name   : COM_UpdateGroup
-*  Model Reference :
 *  Description     : Writes data to the specified group
 */
 
@@ -399,7 +389,6 @@ void COM_UpdateGroup( const uint16_t i, const uint8_t* const data )
 
 /*
 *  Function Name   : COM_GetSignal
-*  Model Reference :
 *  Description     : Reads the signal data from the communication group data groupDataPtr
 */
 
@@ -464,7 +453,6 @@ Std_ReturnType COM_GetSignal( const uint16_t signal_index, void* const data )
 
 /*
 *  Function Name   : COM_SendSignal
-*  Model Reference :
 *  Description     : Writes the signal to the associated communications group
 *                    data groupDataPtr.
 */
@@ -533,7 +521,6 @@ Std_ReturnType COM_SendSignal( const uint16_t signal_index, uint32_t data )
             COM_GroupCfgDB[groupIdx].groupDataPtr[i] &= ~((uint8_t)buf_mask_n);
             COM_GroupCfgDB[groupIdx].groupDataPtr[i] |= (uint8_t)data_n;
 
-            OS_CRITICAL_STOP( COM_STACK_SPINLOCK );
 
             if( COM_GroupCfgDB[groupIdx].interval == COM_SEND_TRIGGER )
             {
@@ -546,6 +533,7 @@ Std_ReturnType COM_SendSignal( const uint16_t signal_index, uint32_t data )
                 rtn = E_OK;
             }
         }
+        OS_CRITICAL_STOP( COM_STACK_SPINLOCK );
     }
     return rtn;
 }
@@ -553,7 +541,6 @@ Std_ReturnType COM_SendSignal( const uint16_t signal_index, uint32_t data )
 
 /*
 *  Function Name   : COM_Initialise
-*  Model Reference :
 *  Description     : Looks-up the table index of the group associated with the network port identifier  portId.
 *                    Walks the group configuration table until the first matching entry is found. If no entry exists, a value of -1
 *                    is returned.
@@ -577,15 +564,12 @@ static uint16_t COM_LookupGroupByPortId( uint16_t portId )
 
 /*
 *  Function Name   : COM_Initialise
-*  Model Reference :
 *  Description     : Initialise all Communication Groups and their constituent
 *                    signals
 */
 void COM_Initialise( void )
 {
     uint16_t i;
-
-
     COM_GroupDataBufferFreeBytes = COM_GROUP_DATA_BUFFER_SIZE;
     /* Clear the communications PDU data groupDataPtr */
     for( i = 0U; i < COM_GROUP_DATA_BUFFER_SIZE; i++ )
