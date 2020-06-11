@@ -47,7 +47,7 @@ typedef enum
 
 typedef enum
 {
-	CANIF_ONLY = 0,
+	CAN_STD = 0,
 	CAN_FD
 }CanDrv_protocol_t;
 

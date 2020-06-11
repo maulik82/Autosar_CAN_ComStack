@@ -25,7 +25,7 @@ const CANDRV_OBJECT_TYPE CANIF_TX0_OBJECT =
        CANIF_MASK_STD0,                        	/* MSG_ID_MASK */
        CANIF_TX0_LENGTH,                       	/* MSG_DATA_LENGTH */
        CANIF_DEFAULT_BYTE_STUFF_VALUE,         	/* BYTE_STUFFING_VAL */
-       CANIF_ONLY,                            	/* CAN_PROTOCOL */
+       CAN_STD,                            	/* CAN_PROTOCOL */
        CANIF_TX,                              	/* DIRECTION */
        FALSE,                                   /* CALLBACK REQ */
        FALSE                                    /* BAUDRATE SWITCH REQ */
@@ -40,7 +40,7 @@ const CANDRV_OBJECT_TYPE CANIF_TX1_OBJECT =
        CANIF_MASK_STD0,                        	/* MSG_ID_MASK */
        CANIF_TX1_LENGTH,                       	/* MSG_DATA_LENGTH */
        CANIF_DEFAULT_BYTE_STUFF_VALUE,         	/* BYTE_STUFFING_VAL */
-       CANIF_ONLY,                            	/* CAN_PROTOCOL */
+       CAN_STD,                            	/* CAN_PROTOCOL */
        CANIF_TX,                              	/* DIRECTION */
        FALSE,                                   /* CALLBACK REQ */
        FALSE                                    /* BAUDRATE SWITCH REQ */
@@ -55,7 +55,7 @@ const CANDRV_OBJECT_TYPE CANIF_TX2_OBJECT =
        CANIF_MASK_STD0,                        	/* MSG_ID_MASK */
        CANIF_TX2_LENGTH,                       	/* MSG_DATA_LENGTH */
        CANIF_DEFAULT_BYTE_STUFF_VALUE,         	/* BYTE_STUFFING_VAL */
-       CANIF_ONLY,                            	/* CAN_PROTOCOL */
+       CAN_STD,                            	/* CAN_PROTOCOL */
        CANIF_TX,                              	/* DIRECTION */
        FALSE,                                   /* CALLBACK REQ */
        FALSE                                    /* BAUDRATE SWITCH REQ */
@@ -70,7 +70,7 @@ const CANDRV_OBJECT_TYPE CANIF_TX3_OBJECT =
        CANIF_MASK_STD0,                        	/* MSG_ID_MASK */
        CANIF_TX3_LENGTH,                       	/* MSG_DATA_LENGTH */
        CANIF_DEFAULT_BYTE_STUFF_VALUE,         	/* BYTE_STUFFING_VAL */
-       CANIF_ONLY,                            	/* CAN_PROTOCOL */
+       CAN_STD,                            	/* CAN_PROTOCOL */
        CANIF_TX,                              	/* DIRECTION */
        FALSE,                                   /* CALLBACK REQ */
        FALSE                                    /* BAUDRATE SWITCH REQ */
@@ -85,7 +85,7 @@ const CANDRV_OBJECT_TYPE CANIF_TX4_OBJECT =
        CANIF_MASK_STD0,                        	/* MSG_ID_MASK */
        CANIF_TX4_LENGTH,                       	/* MSG_DATA_LENGTH */
        CANIF_DEFAULT_BYTE_STUFF_VALUE,         	/* BYTE_STUFFING_VAL */
-       CANIF_ONLY,                            	/* CAN_PROTOCOL */
+       CAN_STD,                            	/* CAN_PROTOCOL */
        CANIF_TX,                              	/* DIRECTION */
        FALSE,                                   /* CALLBACK REQ */
        FALSE                                    /* BAUDRATE SWITCH REQ */
@@ -103,7 +103,7 @@ const CANDRV_OBJECT_TYPE CANIF_RX0_OBJECT =
        CANIF_MASK_STD0,                        	/* MSG_ID_MASK */
        CANIF_RX0_LENGTH,                       	/* MSG_DATA_LENGTH */
        CANIF_DEFAULT_BYTE_STUFF_VALUE,         	/* BYTE_STUFFING_VAL */
-       CANIF_ONLY,                            	/* CAN_PROTOCOL */
+       CAN_STD,                            	/* CAN_PROTOCOL */
        CANIF_RX,                              	/* DIRECTION */
        TRUE,                                    /* CALLBACK REQ */
        FALSE                                    /* BAUDRATE SWITCH REQ */
@@ -118,7 +118,7 @@ const CANDRV_OBJECT_TYPE CANIF_RX1_OBJECT =
        CANIF_MASK_STD0,                        	/* MSG_ID_MASK */
        CANIF_RX1_LENGTH,                       	/* MSG_DATA_LENGTH */
        CANIF_DEFAULT_BYTE_STUFF_VALUE,         	/* BYTE_STUFFING_VAL */
-       CANIF_ONLY,                            	/* CAN_PROTOCOL */
+       CAN_STD,                            	/* CAN_PROTOCOL */
        CANIF_RX,                              	/* DIRECTION */
        TRUE,                                    /* CALLBACK REQ */
        FALSE                                    /* BAUDRATE SWITCH REQ */
@@ -133,7 +133,7 @@ const CANDRV_OBJECT_TYPE CANIF_RX2_OBJECT =
        CANIF_MASK_STD0,                        	/* MSG_ID_MASK */
        CANIF_RX2_LENGTH,                       	/* MSG_DATA_LENGTH */
        CANIF_DEFAULT_BYTE_STUFF_VALUE,         	/* BYTE_STUFFING_VAL */
-       CANIF_ONLY,                            	/* CAN_PROTOCOL */
+       CAN_STD,                            	/* CAN_PROTOCOL */
        CANIF_RX,                              	/* DIRECTION */
        TRUE,                                    /* CALLBACK REQ */
        FALSE                                    /* BAUDRATE SWITCH REQ */
@@ -148,7 +148,7 @@ const CANDRV_OBJECT_TYPE CANIF_RX3_OBJECT =
        CANIF_MASK_STD0,                        	/* MSG_ID_MASK */
        CANIF_RX3_LENGTH,                       	/* MSG_DATA_LENGTH */
        CANIF_DEFAULT_BYTE_STUFF_VALUE,         	/* BYTE_STUFFING_VAL */
-       CANIF_ONLY,                            	/* CAN_PROTOCOL */
+       CAN_STD,                            	/* CAN_PROTOCOL */
        CANIF_RX,                              	/* DIRECTION */
        TRUE,                                    /* CALLBACK REQ */
        FALSE                                    /* BAUDRATE SWITCH REQ */
@@ -163,7 +163,7 @@ const CANDRV_OBJECT_TYPE CANIF_RX4_OBJECT =
        CANIF_MASK_STD0,                        	/* MSG_ID_MASK */
        CANIF_RX4_LENGTH,                       	/* MSG_DATA_LENGTH */
        CANIF_DEFAULT_BYTE_STUFF_VALUE,         	/* BYTE_STUFFING_VAL */
-       CANIF_ONLY,                            	/* CAN_PROTOCOL */
+       CAN_STD,                            	/* CAN_PROTOCOL */
        CANIF_RX,                              	/* DIRECTION */
        TRUE,                                    /* CALLBACK REQ */
        FALSE                                    /* BAUDRATE SWITCH REQ */
